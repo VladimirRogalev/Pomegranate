@@ -9,7 +9,7 @@ import model.Pomegranate;
 import model.Seed;
 
 
-public class PomegranateAppl /*implements PomegranateInterface */{
+public class PomegranateImpl{
 
 	private static final int MIN_BOXES = 100;
 	private static final int MAX_BOXES = 200;
