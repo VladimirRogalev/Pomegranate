@@ -12,6 +12,12 @@ public class Pomegranate implements Iterable<Seed> {
 		this.seeds = seeds;
 	}
 	
+	
+	
+
+
+
+
 
 	@Override
 	public Iterator<Seed> iterator() {

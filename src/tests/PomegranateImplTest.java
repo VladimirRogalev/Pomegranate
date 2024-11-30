@@ -38,6 +38,7 @@ class PomegranateImplTest {
 	void testCalculateTotalSeeds() {
 		int totalSeeds = granates.calculateTotalSeeds(boxes);
 		assertNotNull(totalSeeds);
+		granates.fiveMaxBoxes(boxes);
 		System.out.println("Total seeds: " + totalSeeds);
 		
 	}

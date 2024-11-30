@@ -20,6 +20,12 @@ public class Box implements Iterable<Pomegranate>  {
 								.sum();
 								}
 
+	
+	@Override
+	public String toString() {
+		return "Box [name=" + name + ", seeds = " + getTotalSeeds() + "]";
+	}
+
 	@Override
 	public Iterator<Pomegranate> iterator() {
 		// TODO Auto-generated method stub

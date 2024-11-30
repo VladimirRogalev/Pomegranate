@@ -3,6 +3,7 @@ package dao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import model.Box;
 import model.Pomegranate;
@@ -17,11 +18,10 @@ public class PomegranateImpl implements PomegranateInterface{
 	private static final int MAX_POMEGRANATES = 20;
 	private static final int MIN_SEEDS = 400;
 	private static final int MAX_SEEDS = 700;
-	
+	private static Random random = new Random();
 	
 		@Override
 	public   List<Box> generateRandomBoxes() {
-		Random random = new Random();
 		int numOfBoxes = random.nextInt(MAX_BOXES - MIN_BOXES + 1) + MIN_BOXES;
 		List<Box> boxes = new ArrayList<>();
 		for (int i = 0; i < numOfBoxes; i++) {
@@ -32,7 +32,6 @@ public class PomegranateImpl implements PomegranateInterface{
 	}
 
 	private static List<Pomegranate> generateRandomPomegranates() {
-		Random random = new Random();
 		int numOfPomegranates = random.nextInt(MAX_POMEGRANATES - MIN_POMEGRANATES + 1) + MIN_POMEGRANATES;
 		List<Pomegranate> pomegranates = new ArrayList<>();
 		for (int i = 0; i < numOfPomegranates; i++) {
@@ -42,7 +41,6 @@ public class PomegranateImpl implements PomegranateInterface{
 	}
 
 	private static List<Seed> generateRandomSeeds() {
-		Random random = new Random();
 		int numOfSeeds = random.nextInt(MAX_SEEDS - MIN_SEEDS + 1) + MIN_SEEDS;
 		List<Seed> seeds = new ArrayList<>();
 		for (int i = 0; i < numOfSeeds; i++) {
@@ -61,11 +59,15 @@ public class PomegranateImpl implements PomegranateInterface{
 						.max()
 						.orElse(0);
 	}
-//	private static List<String> findMaximumSeedsBoxes(List<Box> boxes) {
-//	return boxes.stream()
-//						.sorted()
-//						.limit(5)
-//						.orElse
-//	}
+	
+	public List<Box> fiveMaxBoxes (List<Box> boxes){
+		List<Box> res = boxes.stream()
+										.sorted((o2, o1) -> Long.compare(o1.getTotalSeeds(), o2.getTotalSeeds()))
+										.limit(5)
+										.collect(Collectors.toList());
+		res.forEach(System.out::println);
+		return null;
+}
+
 
 }
